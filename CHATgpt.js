@@ -12,16 +12,14 @@ class ProductManager {
       }
   
       // Validar que el código no esté repetido
-      const codeExists = this.products.some(product => product.code === code);
-      if (codeExists) {
-        console.error('El código del producto ya existe');
-        return;
+      const codeExists = this.products.find(product => product.code === code);
+      if (codeExists) { return "El producto con code ($code"
       }
   
       const newProduct = {
         id: this.productId,
         title,
-        description,
+       description,
         price,
         thumbnail,
         code,
@@ -48,21 +46,14 @@ class ProductManager {
   
   
   const productManager = new ProductManager();
-  
-  
   console.log(productManager.getProducts());
-  
+
   productManager.addProduct('producto prueba', 'Este es un producto prueba', 200, 'Sin imagen', 'abc123', 25);
-  
- 
   console.log(productManager.getProducts());
   
   
   productManager.addProduct('producto prueba', 'Este es un producto prueba', 200, 'Sin imagen', 'abc123', 25);
-  
-  
-  console.log(productManager.getProductById(1));
-  
+  console.log(productManager.getProductById(1)); 
   
   console.log(productManager.getProductById(3)); // Simulando un ID que no existe
   
